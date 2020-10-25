@@ -1,11 +1,60 @@
+#include <stdio.h>
 #include <lirc_driver.h>   /* The overall include, mandatory, often sufficient.  */
 #include <lirc/lirc_log.h>
+#include <libusb-1.0/libusb.h>
+#include <pthread.h>
 
 /**
  * The global driver data that drivers etc are accessing.
  * Set by hw_choose_driver().
  */
 struct driver drv;
+
+libusb_device *yaUsbIrdevice = NULL;
+libusb_device_handle *yaUsbIrDeviceHandle = NULL;
+
+pthread_t pollThread = 0;
+int myPipe[2] = { -1, -1 };
+
+//static const logchannel_t logchannel = LOG_DRIVER;
+
+#define CMD_NONE       0x00
+#define CMD_IRDATA     0x01
+#define CMD_COMDATA    0x02
+#define CMD_SETCOMBAUD 0x03
+#define CMD_GETCOMBAUD 0x04
+#define CMD_GETIOS     0x05
+#define CMD_GETIO      0x06
+#define CMD_SETIOS     0x07
+#define CMD_SETIO      0x08
+#define IRRX_NODATA    0x0000
+#define IRRX_F_POLL    6000000 // 6MHz
+#define IRRX_CMD       0x7500
+
+static void *pollFromUsb(void *args) {
+	unsigned char buf[64];
+	int bytesReceived;
+	while (1) {
+//		printf("Oli: pollFromUsb\n");
+		int ret = libusb_interrupt_transfer(yaUsbIrDeviceHandle, 0x81, buf, sizeof(buf), &bytesReceived, 2000);
+		if (ret == 0 || buf[0] == CMD_IRDATA) {
+			for (int i = 2; i < bytesReceived; i += 2) {
+				lirc_t rcvdata = (((int) buf[i]) & 0x7F) << 8; // MSB
+				rcvdata |= (int) buf[i + 1]; // LSB
+				rcvdata *= (int) buf[1]; // us step
+				if (rcvdata == IRRX_NODATA) {
+					break;
+				}
+				if ((buf[i] & 0x80) == 0x80) {
+					rcvdata |= PULSE_BIT;
+				}
+				write(myPipe[1], &rcvdata, sizeof(rcvdata));
+			}
+		}
+	}
+	pthread_exit(NULL);
+	return NULL;
+}
 
 
 /**
@@ -16,8 +65,13 @@ struct driver drv;
  */
 static int open_func(const char *device) {
 	printf("Oli: open_func (with device=%s)\n", device);
-	drv.device = "auto-detected";
+
+	if (strcmp(device, "auto") == 0) {
+		drv.device = "10c4:876c";
+	}
+
 //	send_buffer_init();
+
 	return 0;
 }
 
@@ -28,8 +82,67 @@ static int open_func(const char *device) {
 static int init_func(void) {
 	printf("Oli: init_func\n");
 
-	FILE *dummy = fopen("/dev/zero", "r");
-	drv.fd = fileno(dummy);
+	if (yaUsbIrDeviceHandle) {
+		libusb_release_interface(yaUsbIrDeviceHandle, 0);
+		libusb_close(yaUsbIrDeviceHandle);
+		libusb_exit(NULL);
+		yaUsbIrDeviceHandle = 0;
+	}
+
+	int err = libusb_init(NULL);
+	if (err != 0) {
+		printf("Oli error: libusb_init returned=%d\n", err);
+		return 0;
+	}
+//	{
+//		// print libusb version etc
+//		const struct libusb_version *usbv = libusb_get_version();
+//		printf("Oli: libusb version %d.%d.%d.%d (%s)\n", usbv->major, usbv->minor, usbv->micro, usbv->nano, usbv->describe);
+//	}
+
+	{
+		libusb_device **list = NULL;
+		struct libusb_device_descriptor desc;
+		int count = libusb_get_device_list(NULL, &list);
+		for (int i = 0; i < count; i++) {
+			libusb_device *device = list[i];
+			if (libusb_get_device_descriptor(device, &desc) == 0) {
+				if (desc.idVendor == 0x10c4 && desc.idProduct == 0x876c) {
+					printf("Oli: found yaUsbIr-USB-Device\n");
+					yaUsbIrdevice = device;
+					break;
+				}
+			}
+		}
+	}
+	if (yaUsbIrdevice == NULL) {
+		printf("Oli error: can't find any yaUsbIr-USB-Device\n");
+		return 0;
+	}
+
+	int ret = libusb_open(yaUsbIrdevice, &yaUsbIrDeviceHandle);
+	if (ret != 0) {
+		printf("Oli error: can't open USB-Device (returned=%d %s)\n", ret, libusb_error_name(ret));
+		return 0;
+	}
+
+	libusb_detach_kernel_driver(yaUsbIrDeviceHandle, 0);
+	ret = libusb_claim_interface(yaUsbIrDeviceHandle, 0);
+	if (ret != 0) {
+		printf("Oli error: can't claim USB interface (returned=%d %s)\n", ret, libusb_error_name(ret));
+		return 0;
+	}
+
+	if (pollThread) {
+		pthread_cancel(pollThread);
+		pollThread = 0;
+	}
+
+	pipe(myPipe);
+	drv.fd = myPipe[0];
+
+	pthread_create(&pollThread, NULL, pollFromUsb, (void *)NULL);
+
 	return 1;
 }
 
@@ -77,18 +190,6 @@ static int decode_func(struct ir_remote *remote, struct decode_ctx_t *ctx) {
 }
 
 /**
- * Generic driver control function with semantics as defined by driver
- * Returns 0 on success, else a positive error code.
- */
-//static int drvctl_func(unsigned int cmd, void* arg) {
-//	return 0;
-//}
-
-
-static int seq = 0;
-static int pulseLength = 0;
-
-/**
 * Get length of next pulse/space from hardware.
 * @param timeout Max time to wait (us).
 * @return Length of pulse in lower 24 bits (us). PULSE_BIT
@@ -96,15 +197,18 @@ static int pulseLength = 0;
 * indicates errors.
 */
 static lirc_t readdata(lirc_t timeout) {
-	printf("Oli: readdata (with timeout=%d ms)\n", timeout);
-	seq++;
-	pulseLength = 100 + (seq * 20);
-	if (seq >= 10) {
-		seq = 0;
-		pulseLength = 1000000;
+//	printf("Oli: readdata (with timeout=%d ms)\n", timeout);
+
+	if (!waitfordata(timeout)) {
+		return 0;
 	}
-	usleep(pulseLength);
-	return pulseLength | ((seq & 1) ? PULSE_BIT : 0);
+
+	lirc_t res = 0;
+	int n = read(drv.fd, &res, sizeof(res));
+	if (n != sizeof(res)) {
+		res = 0;
+	}
+	return res;
 }
 
 /**< Hard closing, returns 0 on OK.*/
@@ -114,7 +218,7 @@ static int close_func(void) {
 }
 
 const struct driver hw_oli_yausbir = {
-	.device         = NULL,
+	.device         = NULL,                // USB "vendor:product" in Hex
 	.features       = LIRC_CAN_REC_MODE2,
 	.send_mode      = 0,
 	.rec_mode       = LIRC_MODE_MODE2,
@@ -131,7 +235,7 @@ const struct driver hw_oli_yausbir = {
 	.name           = "oli_yausbir",
 	.api_version    = 3,
 	.driver_version = "0.0.0",
-	.info           = "Oli's approach for a LIRC-Driver for Lirc 0.10.0+",
+	.info           = "LIRC-Plugin-Driver for 'yaUsbIr V3' (for Lirc 0.10.0+)",
 	.resolution     = 1,
 	.device_hint    = "auto"
 };
