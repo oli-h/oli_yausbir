@@ -1,0 +1,35 @@
+yaUsbIR V3 Konfiguration:
+
+Die Konfiguration erfolgt über irsend mit Hilfe der in lircd.conf definierten Sendebefehle, zum Beispiel Powertaste über IR-Empfänger anlernen:
+
+  irsend SEND_ONCE yaUsbIR_control C_IR C_1 C_1 C_0 C_END
+
+
+C_IR + C_1 + C_1 + C_0 + C_END -> Powertaste über IR-Empfänger anlernen 
+C_IR + C_1 + C_1 + C_1 + C_END -> Powertaste über irsend (lircd.conf) anlernen 
+C_IR + C_1 + C_2       + C_END -> Powertaste löschen (Werkseinstellung)
+C_IR + C_2 + n1  + C_0 + C_END -> Lernbare Fernbedienung, Speicher n1 über IR-Empfänger anlernen, n1 = C_1 bis C_8 
+C_IR + C_2 + n1  + C_1 + C_END -> Lernbare Fernbedienung, Speicher n1 über irsend (lircd.conf) anlernen, n1 = C_1 bis C_8 
+C_IR + C_3 + n1        + C_END -> Lernbare Fernbedienung n1, Senden erst bei losgelassener FB-Taste, n1 = C_1 bis C_8 (Werkseinstellung)  
+C_IR + C_4 + n1        + C_END -> Lernbare Fernbedienung n1, direkt Senden, n1 = C_1 bis C_8
+C_IR + C_5 + n1        + C_END -> Lernbare Fernbedienung Speicher n1, löschen, n1 = C_1 bis C_8 (Werkseinstellung)
+C_IR + C_6 + n1  + n2  + C_END -> Lernbare Fernbedienung n1 Sendewiederholung auf n2 einstellen, n2 = C_1 bis C_16
+
+C_IR + C_7             + C_END -> Werkseinstellung
+C_IR + C_8 + C_0       + C_END -> rote Signal-LED aus
+C_IR + C_8 + C_1       + C_END -> rote Signal-LED ein (Werkseinstellung)
+
+C_WATCHDOG + C_0 + C_END -> Watchdog ausschalten
+C_WATCHDOG + C_1 + n1  + n2  + n3 + C_END -> Watchdog retriggern und Watchdog nach (n1*10000)+(n2*1000)+(n3*100) Millisekunden auslösen 
+C_WATCHDOG + C_2 + n1  + n2  + n3 + C_END -> Zeit bis Mainboard über den Powerbutton ausschaltet, Zeit = (n1*10000)+(n2*1000)+(n3*100) Millisekunden (Werkseinstellung 5s) 
+C_WATCHDOG + C_3 + n1  + n2  + n3 + C_END -> Pausenzeit nach abschalten über Powerbutton, Pausenzeit = (n1*10000)+(n2*1000)+(n3*100) Millisekunden (Werkseinstellung 5s)
+C_WATCHDOG + C_4 + n1  + n2  + n3 + C_END -> Zeit zum Einschalten über Powerbutton, Zeit = (n1*10000)+(n2*1000)+(n3*100) Millisekunden ((Werkseinstellung 800ms)
+
+C_INPUT + C_0 + C_0 + C_END -> Inputs als Pegelinput löschen und alle Inputs als 8x Tastatur abfragen (Werkseinstellung), bei Tastendruck wird ein RC5-Code (KEY_F1 bis KEY_F8) zurückliefern
+C_INPUT + C_0 + C_1 + C_END -> Inputs als Pegelinput löschen und alle Inputs als 4x4 Tastaturmatrix abfragen, 16 Tasten, bei Tastendruck wird ein RC5-Code (KEY_F1 bis KEY_F16) zurückliefern
+C_INPUT + C_1 + n1  + C_END -> Input n1 (n1=C_1..C_8) als Pegelinput konfigurieren, Statusabfrage über "C_INPUT + C_3 + n1 + C_END"
+C_INPUT + C_2 + n1  + C_END -> Tastaurwiederholungszeit setzen, Zeit in Millisekunden = n1*100 (n1=C_1..C_9)
+C_INPUT + C_3 + n1  + C_END -> Pegel an Input n1 (n1=C_1..C_8) abfragen und als RC5-Code (IN_1_L bis IN_8_H) zurückliefern
+
+C_OUTPUT + n1 + C_0 + C_END -> Output n1 auf 0 (GND, low) setzen, n1 = C_1 bis C_4
+C_OUTPUT + n1 + C_1 + C_END -> Output n1 auf 1 (open collector, high) setzen, n1 = C_1 bis C_4

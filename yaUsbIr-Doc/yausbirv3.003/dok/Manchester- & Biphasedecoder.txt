@@ -1,0 +1,82 @@
+Manchester- & Biphasedecoder
+
+Hallo, ich möchte hier ein Stück Quellcode beschreiben welcher
+manchester- oder biphasencodierte Signale dekodiert. Das besondere dabei
+ist dass der Code baudratenunabhängig arbeitet, und Biphase und
+Manchester gleichzeitig parallel dekodiert werden können. Die Baudrate
+darf sich mitten im Signal in gewissen umfängen ändern (z.B. Timecode
+auf Bändern während dem Spulen, etc...)
+
+Der Interrupt wird immer bei einer Pegeländerung des Signals aufgerufen.
+Ein (Hardware-)Zähler, im Beispiel Timer0, muss mit geeignetem Takt
+laufen.
+Tritt ein Pegelwechsel im Signal auf, wird zunächst die vergangene Zeit
+zum letzten Pegelwechsel in "diff" abgespeichert. Anschließend wird
+diese Pulslänge (diff) mit der vorhergehenden verglichen; Ist die
+aktuelle Pulslänge größer als 1,5x alte Pulslänge (timebase), handelt es
+sich beim aktuellen Puls um einen langen (bitstate wird auf 0 gesetzt).
+Ansonsten wird überprüft ob die Pulslänge kleiner als 0,75 der
+vorhergehenden (timebase / 2) ist. Falls ja hat man einen kurzen Puls,
+der einem langen Puls gefolgt ist, und bitstate wird auf 1 gesetzt. Ist
+keine der beiden vorgehenden Bedingungen erfüllt, ist der aktuelle Pulse
+in etwa der gleichen Länge wie der vorherige. Falls in diesem Fall der
+vorangegangene Puls ein kurzer war, wird bitstate abwechselnd auf 1 oder
+2 gesetzt. Jetzt wird die "Zeitbasis", also die Zeit des letzten Pulses
+aktualisiert (timebase). Da einmal auf das 1,5fache und einmal auf das
+0,75fache dieses Wertes im nächsten Durchlauf geprüft wird, wird direkt
+der 1,5fache Wert abgespeichert, so dass für den 0,75fachen Vergleich
+nur noch durch 2 dividiert werden muss.
+
+Nun folt die eigentliche Auswertung:
+Bei Manchester sind wir nach einem langen Pulse (bitstate 0) oder nach
+einer geraden Anzahl von kurzen Pulsen (bitstate 2) in der Bitmitte, nun
+muss nur noch der Pegel gelesen werden und man hat eine Daten 0 oder 1.
+Bei Biphase entspricht ein langer Puls (bitstate 0) einer Daten-0, zwei
+aufeinanderfolgende kurze Pulse (bitstate 2) einer Daten-1.
+
+SIGNAL (SIG_INTERRUPT0)
+{
+  uint8_t cnt = TCNT0;
+  static uint8_t timebase;
+  static uint8_t bitstate = 0;
+  static uint8_t old_cnt;
+  uint8_t diff = (uint8_t) (cnt - old_cnt);
+  old_cnt = cnt;
+  static uint16_t fifo;
+
+  if (diff > timebase) //this is a long pulse after a short pulse
+    bitstate = 0;
+  else
+    if (diff < (timebase / 2)) //this is a short pulse after a long pulse
+      bitstate = 1;
+    else //same pulse length (within 0.75x and < 1.5x of last length)
+      if (bitstate == 1) //even number of consecutive short times at this place
+        bitstate = 2;
+      else
+        if (bitstate == 2) //odd number of short times at this place
+          bitstate = 1;
+
+  timebase = 3 * diff / 2;
+
+
+  if (bitstate != 1)
+  {
+    /* Manchester-II / Biphase-L decoding:
+      Here we are in the middle of a bit (bitstate)
+      for IEEE 802.3 just invert polarity
+    */
+    if (bit_is_clear(PIND, PD2))
+      ; //falling edge in bit middle -> shift out a 1
+    else
+      ; //rising edge in bit middle -> shift out a 0
+
+    /* Biphase-marc-code (BMC) decoding
+      Here we are at the end of a bit
+    */
+
+    if (bitstate)
+      ; //even number of consecutive short pulses, shift out a 1
+    else
+      ; //long pulse, shift out a 0
+  }
+}

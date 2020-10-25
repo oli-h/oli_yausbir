@@ -1,0 +1,10 @@
+"E:\yaUsbIR\yausbirv3.003\USB_ISR.obj",
+"E:\yaUsbIR\yausbirv3.003\USB_Main.obj",
+"E:\yaUsbIR\yausbirv3.003\USB_Standard_Requests.obj",
+"E:\yaUsbIR\yausbirv3.003\USB_Descriptor.obj",
+"E:\yaUsbIR\yausbirv3.003\USB_HID_Requests.obj",
+"E:\yaUsbIR\yausbirv3.003\ir.obj",
+"E:\yaUsbIR\yausbirv3.003\sio.obj",
+"E:\yaUsbIR\yausbirv3.003\flash.obj",
+"E:\yaUsbIR\yausbirv3.003\fill.obj",
+"E:\yaUsbIR\yausbirv3.003\io.obj"  TO "E:\yaUsbIR\yausbirv3.003\yaUsbIRV3.OMF" RS(256) PL(68) PW(108) 

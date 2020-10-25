@@ -1,0 +1,23 @@
+del *.#1
+del *.#2
+del *.#3
+del *.bak
+del tmp.out
+del cyglink.txt
+del *.LST
+del *.M51
+del *.obj
+del *.sym
+del *.rst
+del *.rel
+del *.map
+del *.cdb
+del *.adb
+del *.lnk
+del *.mem
+del *.uvgui.*
+del *.lnp
+del *.__i
+del *._ia
+del *.iex
+

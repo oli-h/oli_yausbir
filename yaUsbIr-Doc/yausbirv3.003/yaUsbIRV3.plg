@@ -1,0 +1,1237 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\develop\vdr_ir\source\c51\yaUsbIr\yausbirv3.001\yaUsbIRV3.uvproj
+Project File Date:  11/26/2012
+
+<h2>Output:</h2>
+compiling io.c...
+IO.C(140): error C141: syntax error near ']'
+io.c - 1 Error(s), 0 Warning(s).
+compiling io.c...
+io.c - 0 Error(s), 0 Warning(s).
+compiling io.c...
+io.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+compiling USB_HID_Requests.c...
+compiling USB_Main.c...
+compiling io.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1015 code=28908
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling io.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1015 code=28906
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1015 code=28904
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1015 code=28902
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling io.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1015 code=28896
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling io.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1015 code=28892
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+compiling ir.c...
+ir.c - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1014 code=28893
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1014 code=28905
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling io.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1014 code=28908
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling io.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1014 code=28905
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling io.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1014 code=28905
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+compiling io.c...
+io.c - 0 Error(s), 0 Warning(s).
+compiling ir.c...
+IR.C(53): error C129: missing ';' before 'bInputs'
+ir.c - 1 Error(s), 0 Warning(s).
+compiling ir.c...
+ir.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1015 code=28910
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+compiling ir.c...
+ir.c - 0 Error(s), 0 Warning(s).
+compiling ir.c...
+IR.C(309): error C202: 'bRC5': undefined identifier
+IR.C(523): error C187: not an lvalue
+IR.C(542): error C187: not an lvalue
+ir.c - 3 Error(s), 0 Warning(s).
+compiling ir.c...
+ir.c - 0 Error(s), 0 Warning(s).
+compiling ir.c...
+IR.C(313): error C202: 'bInputMask': undefined identifier
+IR.C(523): error C187: not an lvalue
+IR.C(542): error C187: not an lvalue
+ir.c - 3 Error(s), 0 Warning(s).
+compiling ir.c...
+ir.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1017 code=28996
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+compiling ir.c...
+ir.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1017 code=29014
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+compiling io.c...
+io.c - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1017 code=29044
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+compiling ir.c...
+ir.c - 0 Error(s), 0 Warning(s).
+compiling ir.c...
+IR.C(309): error C141: syntax error near '{'
+IR.C(577): error C187: not an lvalue
+IR.C(596): error C187: not an lvalue
+ir.c - 3 Error(s), 0 Warning(s).
+compiling ir.c...
+ir.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=148.3 xdata=1017 code=29216
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29210
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=153.3 xdata=1012 code=29212
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=172.3 xdata=993 code=29207
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=159.3 xdata=1006 code=29279
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=159.3 xdata=1006 code=29279
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29277
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29272
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29264
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=153.3 xdata=1012 code=29269
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29292
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7C21H
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29264
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29155
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1027 code=37347
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_HID_Requests.c...
+compiling USB_Main.c...
+compiling io.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29155
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling USB_Main.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29155
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29155
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29154
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29158
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29158
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29154
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29161
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ir.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1011 code=29154
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+compiling USB_Main.c...
+USB_MAIN.C(61): error C202: 'bMenu': undefined identifier
+USB_MAIN.C(114): error C187: not an lvalue
+USB_MAIN.C(126): error C187: not an lvalue
+USB_MAIN.C(142): error C187: not an lvalue
+USB_Main.c - 4 Error(s), 0 Warning(s).
+compiling USB_Main.c...
+USB_Main.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling USB_Main.c...
+compiling io.c...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1008 code=29196
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+compiling ir.c...
+ir.c - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1008 code=29185
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1008 code=29179
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1008 code=29179
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
+Rebuild target 'Target 1'
+compiling USB_Standard_Requests.c...
+compiling flash.c...
+compiling ir.c...
+compiling sio.c...
+compiling USB_Descriptor.c...
+compiling USB_HID_Requests.c...
+compiling USB_ISR.c...
+compiling USB_Main.c...
+compiling io.c...
+assembling fill.asm...
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_WRITE?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_FIFO_READ?USB_ISR
+    CALLER1: ?PR?USB_ISR?USB_ISR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_VGENRC5?IR
+    CALLER1: ?PR?VTIMER0ISR?IR
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    5A00H
+    TO:      7BFFH
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    7C00H
+    TO:      7DFFH
+Program Size: data=154.3 xdata=1008 code=29194
+creating hex file from "yaUsbIrV3"...
+"yaUsbIrV3" - 0 Error(s), 5 Warning(s).
