@@ -32,12 +32,21 @@ int myPipe[2] = { -1, -1 };
 #define IRRX_CMD       0x7500
 
 static void *pollFromUsb(void *args) {
+	printf("Oli: pollFromUsb started\n");
 	unsigned char buf[64];
 	int bytesReceived;
 	while (1) {
 //		printf("Oli: pollFromUsb\n");
-		int ret = libusb_interrupt_transfer(yaUsbIrDeviceHandle, 0x81, buf, sizeof(buf), &bytesReceived, 2000);
-		if (ret == 0 || buf[0] == CMD_IRDATA) {
+		memset(buf, 0, 64 * sizeof(char));
+		int ret = libusb_interrupt_transfer(yaUsbIrDeviceHandle, 0x81, buf, sizeof(buf), &bytesReceived, 10000);
+		if (ret == LIBUSB_ERROR_TIMEOUT) {
+			continue;
+		}
+		if (ret != 0) {
+			printf("Oli error: libusb_interrupt_transfer (returned=%d %s)\n", ret, libusb_error_name(ret));
+			break;
+		}
+		if (ret == 0 && buf[0] == CMD_IRDATA) {
 			for (int i = 2; i < bytesReceived; i += 2) {
 				lirc_t rcvdata = (((int) buf[i]) & 0x7F) << 8; // MSB
 				rcvdata |= (int) buf[i + 1]; // LSB
@@ -53,7 +62,23 @@ static void *pollFromUsb(void *args) {
 		}
 	}
 	pthread_exit(NULL);
+	printf("Oli: pollFromUsb exit\n");
 	return NULL;
+}
+
+static void cleanup() {
+	if (yaUsbIrDeviceHandle) {
+		printf("Oli: releasing/closing USB-Device 1\n");
+		libusb_release_interface(yaUsbIrDeviceHandle, 0);
+		printf("Oli: releasing/closing USB-Device 2\n");
+		libusb_close(yaUsbIrDeviceHandle);
+		printf("Oli: releasing/closing USB-Device 3\n");
+		libusb_exit(NULL);
+		printf("Oli: releasing/closing USB-Device 4\n");
+		yaUsbIrDeviceHandle = NULL;
+		printf("Oli: releasing/closing USB-Device done\n");
+	}
+
 }
 
 
@@ -82,12 +107,9 @@ static int open_func(const char *device) {
 static int init_func(void) {
 	printf("Oli: init_func\n");
 
-	if (yaUsbIrDeviceHandle) {
-		libusb_release_interface(yaUsbIrDeviceHandle, 0);
-		libusb_close(yaUsbIrDeviceHandle);
-		libusb_exit(NULL);
-		yaUsbIrDeviceHandle = 0;
-	}
+	cleanup();
+	rec_buffer_init();
+	send_buffer_init();
 
 	int err = libusb_init(NULL);
 	if (err != 0) {
@@ -100,6 +122,7 @@ static int init_func(void) {
 //		printf("Oli: libusb version %d.%d.%d.%d (%s)\n", usbv->major, usbv->minor, usbv->micro, usbv->nano, usbv->describe);
 //	}
 
+	yaUsbIrdevice = NULL;
 	{
 		libusb_device **list = NULL;
 		struct libusb_device_descriptor desc;
@@ -133,11 +156,6 @@ static int init_func(void) {
 		return 0;
 	}
 
-	if (pollThread) {
-		pthread_cancel(pollThread);
-		pollThread = 0;
-	}
-
 	pipe(myPipe);
 	drv.fd = myPipe[0];
 
@@ -151,7 +169,8 @@ static int init_func(void) {
  *  indicates failure, all other return values success.
  */
 static int deinit_func(void) {
-	printf("Oli: init_func\n");
+	printf("Oli: deinit_func\n");
+	cleanup();
 	return 1;
 }
 
@@ -173,7 +192,7 @@ static int send_func(struct ir_remote *remote, struct ir_ncode *code) {
  *         data: "remote-name code-name code repetitions"
  */
 static char* rec_func(struct ir_remote *remotes) {
-	printf("Oli: rec_func (remotes.name\n");
+//	printf("Oli: rec_func (remotes.name=%s)\n", remotes->name);
 	if (!rec_buffer_clear()) {
 		/* handle errors */
 		return NULL;
@@ -181,13 +200,13 @@ static char* rec_func(struct ir_remote *remotes) {
 	return decode_all(remotes);
 }
 
-/**
- * TODO
- */
-static int decode_func(struct ir_remote *remote, struct decode_ctx_t *ctx) {
-	printf("Oli: decode_func\n");
-	return receive_decode(remote, ctx);
-}
+///**
+// * TODO
+// */
+//static int decode_func(struct ir_remote *remote, struct decode_ctx_t *ctx) {
+//	printf("Oli: decode_func\n");
+//	return receive_decode(remote, ctx);
+//}
 
 /**
 * Get length of next pulse/space from hardware.
@@ -204,7 +223,7 @@ static lirc_t readdata(lirc_t timeout) {
 	}
 
 	lirc_t res = 0;
-	int n = read(drv.fd, &res, sizeof(res));
+	int n = read(drv.fd, &res, sizeof(res)); // read from fifo
 	if (n != sizeof(res)) {
 		res = 0;
 	}
@@ -228,7 +247,7 @@ const struct driver hw_oli_yausbir = {
 	.deinit_func    = deinit_func,
 	.send_func      = send_func,
 	.rec_func       = rec_func,
-	.decode_func    = decode_func,
+	.decode_func    = receive_decode,   // call LIRC's default implementation
 	.drvctl_func    = default_drvctl,
 	.readdata       = readdata,
 	.close_func     = close_func,
