@@ -5,7 +5,16 @@ At the moment this is just a quick'n'dirty "Eclipse CDT" project (i.e. no Makefi
 Just google for "yaUsbIR V3" and you quickly find info about this little InfraRed-Receiver/Transmitter/PowerSwitch-device
 
 ## Usage
+`mode2 -U Debug/ -H oli_yausbir`
+
 `xmode2 -U Debug/ -H oli_yausbir`
+
+`irrecord -U Debug/ -H oli_yausbir`
+
+etc...
+
+Finally copy the oli_yausbir.so to directory `/usr/.../lirc/.../plugins/` (Details follow).
+Then you don't need to specify `-U ...` any more
 
 ## udev
 Write this into `/lib/udev/rules.d/99-yausbir.rules` to give normal user access to the USB-Device.
