@@ -13,7 +13,7 @@ Just google for "yaUsbIR V3" and you quickly find info about this little InfraRe
 
 etc...
 
-Finally copy the oli_yausbir.so to directory `/usr/.../lirc/.../plugins/` (Details follow).
+Finally copy the compile/lin-result `oli_yausbir.so` to directory `/usr/.../lirc/.../plugins/` (Details follow).
 Then you don't need to specify `-U ...` any more
 
 ## udev
