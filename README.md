@@ -18,6 +18,7 @@ Then you don't need to specify `-U ...` any more
 
 ## udev
 Write this into `/lib/udev/rules.d/99-yausbir.rules` to give normal user access to the USB-Device.
+Other wise you have to start all tools (`xmode2`, `irrecord`, etc) as root.
 
 ```
 SUBSYSTEM=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="876c", MODE="0666"
