@@ -28,7 +28,7 @@ int myPipe[2] = { -1, -1 };
 #define CMD_SETIOS     0x07
 #define CMD_SETIO      0x08
 #define IRRX_NODATA    0x0000
-#define IRRX_F_POLL    6000000 // 6MHz
+#define IRRX_F_POLL    6000000.0 // 6MHz
 #define IRRX_CMD       0x7500
 
 static void *pollFromUsb(void *args) {
@@ -43,7 +43,7 @@ static void *pollFromUsb(void *args) {
 			continue;
 		}
 		if (ret != 0) {
-			printf("Oli error: libusb_interrupt_transfer (returned=%d %s)\n", ret, libusb_error_name(ret));
+			printf("Oli error (while receiving data from yaUsbIr): libusb_interrupt_transfer (returned=%d %s)\n", ret, libusb_error_name(ret));
 			break;
 		}
 		if (ret == 0 && buf[0] == CMD_IRDATA) {
@@ -68,15 +68,15 @@ static void *pollFromUsb(void *args) {
 
 static void cleanup() {
 	if (yaUsbIrDeviceHandle) {
-		printf("Oli: releasing/closing USB-Device 1\n");
+		printf("Oli: releasing/closing USB-Device: step 1\n");
 		libusb_release_interface(yaUsbIrDeviceHandle, 0);
-		printf("Oli: releasing/closing USB-Device 2\n");
+		printf("Oli: releasing/closing USB-Device: step 2\n");
 		libusb_close(yaUsbIrDeviceHandle);
-		printf("Oli: releasing/closing USB-Device 3\n");
+		printf("Oli: releasing/closing USB-Device: step 3\n");
 		libusb_exit(NULL);
-		printf("Oli: releasing/closing USB-Device 4\n");
+		printf("Oli: releasing/closing USB-Device: step 4\n");
 		yaUsbIrDeviceHandle = NULL;
-		printf("Oli: releasing/closing USB-Device done\n");
+		printf("Oli: releasing/closing USB-Device: done\n");
 	}
 
 }
@@ -182,6 +182,51 @@ static int deinit_func(void) {
  */
 static int send_func(struct ir_remote *remote, struct ir_ncode *code) {
 	printf("Oli: send_func\n");
+
+	if (!send_buffer_put(remote, code)) {
+		return 0;
+	}
+
+	int length = send_buffer_length();
+	const lirc_t* signals = send_buffer_data();
+
+	if (length <= 0 || signals == NULL) {
+		return 0;
+	}
+
+	unsigned char buf[64];
+	int bufIdx = 0;
+	memset(buf, 0, sizeof(buf));
+	buf[bufIdx++] = CMD_IRDATA;
+	buf[bufIdx++] = IRRX_F_POLL / (2 * 38000);
+
+	printf("Oli: send_buffer is (length=%d signals=[", length);
+	for (int i = 0; i < length; i++) {
+		printf(" %d", signals[i]);
+		lirc_t tx = signals[i];
+		if (tx >= IRRX_CMD) { // is a yaUsbIR V3 command
+//			ir_transmit_time_us += 1000;
+			tx /= 0x0D;
+		} else {
+//			ir_transmit_time_us += txbuf;
+			tx = (lirc_t) (((double) tx) / (((double) buf[1]) / 6.0));
+		}
+		if (tx > 0x7FFF) {
+			// print warning
+			tx = 0x7FFF;
+		}
+		tx |= (i%2 == 0) ? 0x8000:0x0000;// Pulse or Space
+		buf[bufIdx++] = (tx>>8) & 0xFF;// MSB
+		buf[bufIdx++] =  tx     & 0xFF;// LSB
+	}
+	printf("])\n");
+
+	int bytesReceived;
+	int ret = libusb_interrupt_transfer(yaUsbIrDeviceHandle, 0x01, buf, bufIdx, &bytesReceived, 1000);
+	if (ret != 0) {
+		printf("Oli error (while sending data to yaUsbIr): libusb_interrupt_transfer (returned=%d %s)\n", ret, libusb_error_name(ret));
+		return 0;
+	}
 	return 1;
 }
 
@@ -238,8 +283,8 @@ static int close_func(void) {
 
 const struct driver hw_oli_yausbir = {
 	.device         = NULL,                // USB "vendor:product" in Hex
-	.features       = LIRC_CAN_REC_MODE2,
-	.send_mode      = 0,
+	.features       = LIRC_CAN_REC_MODE2|LIRC_CAN_SEND_PULSE,
+	.send_mode      = LIRC_MODE_PULSE,
 	.rec_mode       = LIRC_MODE_MODE2,
 	.code_length    = 0,
 	.open_func      = open_func,
