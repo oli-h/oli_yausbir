@@ -10,7 +10,6 @@
  */
 struct driver drv;
 
-libusb_device *yaUsbIrdevice = NULL;
 libusb_device_handle *yaUsbIrDeviceHandle = NULL;
 
 pthread_t pollThread = 0;
@@ -46,6 +45,7 @@ static void *pollFromUsb(void *args) {
 			printf("Oli error (while receiving data from yaUsbIr): libusb_interrupt_transfer (returned=%d %s)\n", ret, libusb_error_name(ret));
 			break;
 		}
+//		printf("Oli: bytesReceived=%d\n", bytesReceived);
 		if (ret == 0 && buf[0] == CMD_IRDATA) {
 			for (int i = 2; i < bytesReceived; i += 2) {
 				lirc_t rcvdata = (((int) buf[i]) & 0x7F) << 8; // MSB
@@ -94,6 +94,7 @@ static int open_func(const char *device) {
 	if (strcmp(device, "auto") == 0) {
 		drv.device = "10c4:876c";
 	}
+	printf("Oli: open_func: will use USB-Device %s\n", drv.device);
 
 //	send_buffer_init();
 
@@ -122,7 +123,7 @@ static int init_func(void) {
 //		printf("Oli: libusb version %d.%d.%d.%d (%s)\n", usbv->major, usbv->minor, usbv->micro, usbv->nano, usbv->describe);
 //	}
 
-	yaUsbIrdevice = NULL;
+	libusb_device *yaUsbIrdevice = NULL;
 	{
 		libusb_device **list = NULL;
 		struct libusb_device_descriptor desc;
