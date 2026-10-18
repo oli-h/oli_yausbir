@@ -9,14 +9,15 @@ Just google for "yaUsbIR V3" and you quickly find info about this little InfraRe
 
 ## Build and usage
 Ensure you installed libusb-1.0-0-dev and liblirc-dev (`sudo apt install...`)
+
 Build with `./build.sh` (requires cmake).
 
 Then use the well-known LIRC-Tools like this:
 - `mode2 -U build/ -H oli_yausbir`
 - `xmode2 -U build/ -H oli_yausbir`
 - `irrecord -U build/ -H oli_yausbir`
+- `lircd --nodaemon -U build -H oli_yausbir`
 - etc...
-
 
 Finally copy the compile/link-result `liboli_yausbir.so` to directory `/usr/lib/x86_64-linux-gnu/lirc/plugins/` (Cross-check with property `plugindir` in *your* `/etc/lirc/lirc_options.conf`). Then you don't need to specify `-U ...` any more.
 
@@ -35,11 +36,11 @@ The yaUsbIr-Board understands several control-commands. This PlugIn-driver here 
 You need to copy [yaUsbIR_V3_lircd.conf](./yaUsbIr-Doc/yausbirv3.003/yaUsbIR_V3_lircd.conf) to `/etc/lirc/lircd.conf.d/` and (re)start `lircd` first *before* you can can anything with `irsend`.
 
 Check if "sending control-commands" work by switching the red LED (on yaUsbIr-Board) on and off:
-- `irsend SEND_ONCE yaUsbIR_control C_IR C_8 C_0 C_END` turn *off*
-- `irsend SEND_ONCE yaUsbIR_control C_IR C_8 C_1 C_END` turn *on*
+- `irsend SEND_ONCE yaUsbIR_control C_IR 8 0 C_END` turn *off*
+- `irsend SEND_ONCE yaUsbIR_control C_IR 8 1 C_END` turn *on*
 
 The most relevant command for you then probably is:
-- `irsend SEND_ONCE yaUsbIR_control C_IR C_1 C_1 C_0 C_END` to start learning the "Power-IR-Code"
+- `irsend SEND_ONCE yaUsbIR_control C_IR 1 1 0 C_END` to start learning the "Power-IR-Code"
 
 See [Anleitung_yaUsbIR V3.4.pdf](./yaUsbir-Doc/Anleitung_yaUsbIR V3.4.pdf) for details and a list of all commands.
 
